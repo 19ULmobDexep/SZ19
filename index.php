@@ -1,27 +1,5 @@
 <?php
-
-/*
-    if ($_POST['sign'] === 'plus'){
-        echo (intval($_POST['val1']) + intval($_POST['val2']));
-    } elseif($_POST['sign'] === 'moins') {
-         echo (intval($_POST['val1']) - intval($_POST['val2']));
-    } elseif($_POST['sign'] === 'fois'){
-         echo (intval($_POST['val1']) * intval($_POST['val2']));
-    } elseif($_POST['sign'] === 'divise'){
-         echo (intval($_POST['val1']) / intval($_POST['val2']));
-    } elseif($_POST['sign'] === 'exposant') {
-        $val1 = intval($_POST['val1']) ;
-        $val2 = intval($_POST['val2']) ;
-        $resultat = 1 ;
-        for ($i = 0; $i<$val2; $i++) {
-            $resultat = $resultat * $val1 ;
-        }
-         echo $resultat ;
-    } else {
-    echo '?? wtf ?' ;
-    } 
-    */   
-
+ $result = 0 ;
 
 
 function exposant($val1, $val2){
@@ -32,59 +10,61 @@ function exposant($val1, $val2){
     return $resultat ;
 }
 
-if (!empty($_POST)) {
+// if (!empty($_POST)) {
 
 
-    $result = 0 ;
+//     $result = 0 ;
 
 
- switch ($_POST['sign']) {
-     case 'plus':
-         $result = (intval($_POST['val1']) + intval($_POST['val2']));
-         break;
+//  switch ($_POST['sign']) {
+//      case 'plus':
+//          $result = (intval($_POST['val1']) + intval($_POST['val2']));
+//          break;
     
-    case 'moins':
-         $result = (intval($_POST['val1']) - intval($_POST['val2']));
-         break;
+//     case 'moins':
+//          $result = (intval($_POST['val1']) - intval($_POST['val2']));
+//          break;
 
-    case 'fois':
-         $result = (intval($_POST['val1']) * intval($_POST['val2']));
-         break;
+//     case 'fois':
+//          $result = (intval($_POST['val1']) * intval($_POST['val2']));
+//          break;
 
-    case 'divise':
-         $result = (intval($_POST['val1']) / intval($_POST['val2']));
-         break;
+//     case 'divise':
+//          $result = (intval($_POST['val1']) / intval($_POST['val2']));
+//          break;
 
-    case 'exposant':
+//     case 'exposant':
 
-         $result = exposant( intval($_POST['val1']), intval($_POST['val2']));
-         break;
+//          $result = exposant( intval($_POST['val1']), intval($_POST['val2']));
+//          break;
      
-     default:
-        echo '?? wtf ?';
-         break;
-    }
-    echo $_POST['val1'].' '.$_POST['sign'].' '.$_POST['val2']. ' = '. $result;
+//      default:
+//         echo '?? wtf ?';
+//          break;
+//     }
+//     echo $_POST['val1'].' '.$_POST['sign'].' '.$_POST['val2']. ' = '. $result;
 
 
-}
+// }
  $val1 = '';
  $val2 = '';
  $sign = '';
 
- if(!empty($_POST['val1'])) {
-     $val1 = $_POST['val1'] ;
- }
+//  if(!empty($_POST['val1'])) {
+//      $val1 = $_POST['val1'] ;
+//  }
 
- if(!empty($_POST['val2'])) {
-    $val2 = $_POST['val2'] ;
-}
+//  if(!empty($_POST['val2'])) {
+//     $val2 = $_POST['val2'] ;
+// }
 
-if(!empty($_POST['sign'])) {
-    $sign = $_POST['sign'] ;
-}
+// if(!empty($_POST['sign'])) {
+//     $sign = $_POST['sign'] ;
+// }
 
 $options = ['plus', 'moins','fois', 'divise','exposant'];
+
+include 'traitement.php';
 
 ?>
 <form action="index.php" method="POST">
