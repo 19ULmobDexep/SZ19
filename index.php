@@ -13,13 +13,21 @@ if (!empty($_POST)) {
          echo (intval($_POST['val1']) * intval($_POST['val2']));
     } elseif($_POST['sign'] === 'divise'){
          echo (intval($_POST['val1']) / intval($_POST['val2']));
+    } elseif($_POST['sign'] === 'exposant') {
+        $val1 = intval($_POST['val1']) ;
+        $val2 = intval($_POST['val2']) ;
+        $resultat = 1 ;
+        for ($i = 0; $i<$val2; $i++) {
+            $resultat = $resultat * $val1 ;
+        }
+         echo $resultat ;
     } else {
     echo '?? wtf ?' ;
     }    
 
 }
 ?>
-<form action="index.php" method="GET">
+<form action="index.php" method="POST">
     <label for="val1">Val 1 </label>
     <input type="text" name="val1" id="val1" />
     <label for="sign">Sign </label>
@@ -28,8 +36,13 @@ if (!empty($_POST)) {
         <option>moins</option>
         <option>fois</option>
         <option>divise</option>
+        <option>exposant</option>
     </select>
     <label for="val2">Val 2 </label>
     <input type="text" name="val2" id="val2" />
     <input type="submit" value="calcule" />
 </form>
+
+
+
+
