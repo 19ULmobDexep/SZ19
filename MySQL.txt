@@ -1,0 +1,93 @@
+www . codepile . net / pile / dwm g 2
+
+// Installation de PHP >= 7.3
+sudo apt update
+sudo add-apt-repository ppa:ondrej/php
+sudo apt update
+
+// Installer notre L.A.M.P
+sudo apt install apache2 mysql-server php7.4 -y
+
+// Activer les erreurs PHP
+sudo nano /etc/php/7.4/apache2/php.ini
+    Puis :
+        CTRL + W et rechercher : 'display_errors'
+        Refaire CTRL + W, puis Entrée
+        Passer ces deux valeurs en On :
+            - 'display_errors = Off'
+            - 'display_startup_errors = Off'
+        Puis commande magique (sudo service apache2 restart)
+
+// Créer une variable 
+$fruit = 'Citron';
+
+// Afficher le contenu d'une variable 
+echo $fruit
+
+// Afficher le contenu d'une variable avec une string
+echo "Mon fruit préféré est le $fruit";
+
+// Deux types d'arrays : Numériques et Associatifs
+$array = [1, "Oranges", false, "Pluie"];
+
+$array = [
+    "name" => "Paul",
+    "age" => 18,
+    "city" => "Lyon"
+];
+
+// Les bases de données
+// Se connecter à MySQL :
+'mysql -u root -p'
+    Puis entrer le MDP
+
+Afficher toutes les DBs créées : 
+'show databases;'
+
+Créer une database :
+'create database cinema;'
+
+Utiliser une database en particulier :
+'use cinema';
+
+// Exemple de table :
+CREATE TABLE movies 
+( 
+id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+genre VARCHAR(255), 
+producteur VARCHAR(255), 
+year INT(6) 
+);
+
+Afficher les tables :
+'show tables';
+
+Afficher le contenu les colonnes d'une table :
+'describe movies;'
+
+Exemple d'insertion (requête SQL) :
+INSERT INTO movies (name, genre, producteur, year) VALUES ("Asterix et Obelix mission Cleopatre", "Comedie", "Alain Chabat", 2002)
+
+/*
+1) Afficher la liste de tous les films créés dans notre DB
+1) Correction : SELECT * FROM movies;
+
+2) Afficher la liste de tous les films créés dans notre DB dans l'ordre alphabétique
+2) Correction : SELECT * FROM movies ORDER BY name;
+
+3) Afficher tous les films créés dans notre DB en les triant par genre
+3) Correction : SELECT * FROM movies ORDER BY genre;
+
+4) Sélectionner le film dont l'ID est égal à 4
+4) Correction : SELECT * FROM movies WHERE id = 4;
+
+5) Supprimer le film dont le producteur est Georges Lucas (parce que Star Wars c'est bof)
+5) Correction : DELETE FROM movies WHERE producteur = "Georges Lucas";
+
+6) Modifier le nom du film d'Asterix et remplacez-le par celui de votre choix
+6) Correction : UPDATE movies SET name = "Avatar" WHERE name = "Asterix et Obelix mission Cleopatre";
+*/
+
+
+
